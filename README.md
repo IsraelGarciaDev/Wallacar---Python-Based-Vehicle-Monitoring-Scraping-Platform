@@ -1,87 +1,57 @@
-# 🚗 Wallapop Opportunities Scraper
+# 🚗 Wallacar - Marketplace Opportunities Scraper
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Selenium](https://img.shields.io/badge/selenium-4.0%2B-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-Un rastreador avanzado de oportunidades de coches en Wallapop. Este bot automatiza la búsqueda de vehículos, analiza precios de mercado y notifica ofertas "chollo" directamente a Telegram.
+An advanced vehicle marketplace monitoring tool and scraper. This bot automates vehicle searches, analyzes market pricing anomalies, and sends real-time "bargain" alerts directly to a Telegram chat.
 
-## ✨ Características
+## ✨ Features
 
--   **Búsqueda Automatizada**: Rastreo continuo de múltiples modelos de coches.
--   **Análisis de Mercado**: Calcula el precio medio de mercado y detecta desviaciones (chollos).
--   **Notificaciones Inteligentes**: Envía alertas a Telegram con fotos, datos clave y clasificación de la oferta (🟢 Chollo, 🟡 Buen precio, 🔴 Caro).
--   **Evasión de Bots**: Utiliza `undetected-chromedriver` y rotación de User-Agents para evitar bloqueos.
--   **Gestión de Recursos**: Sistema robusto para limpiar procesos de Chrome y gestionar memoria.
--   **Base de Datos**: Almacenamiento local en SQLite para historial de precios y estadísticas.
+- **Automated Web Scraping**: Modular architecture using Selenium to extract real-time vehicle listings from high-traffic marketplaces.
+- **Market Data Analysis**: Calculates local average market prices and instantly detects price deviations (bargains).
+- **Smart Notifications**: Sends automated alerts via Telegram (`notifier.py` / `bot_handler.py`) containing images, key technical data, and price grading (🟢 Bargain, 🟡 Fair Price, 🔴 Overpriced).
+- **Anti-Bot Evasion**: Utilizes `undetected-chromedriver` and automated User-Agent rotation to prevent blocks and ensure uninterrupted tracking.
+- **Resource Management**: Robust internal handling for clearing dangling Chrome processes and optimizing memory consumption.
+- **Data Persistence**: Built-in relational data management using SQLite to store price histories and search statistics.
 
-## 🚀 Instalación
+## 🚀 Installation & Setup
 
-### Requisitos Previos
+### Prerequisites
 
--   Python 3.10 o superior.
--   Google Chrome instalado.
--   Docker (opcional, para despliegue en contenedor).
+- Python 3.10 or higher.
+- Google Chrome installed.
 
-### Configuración Local
+### Local Configuration
 
-1.  **Clonar el repositorio** (o descargar los archivos):
+1. **Clone the repository** (or download the source files):
     ```bash
-    git clone https://github.com/tu-usuario/wallapop-scraper.git
-    cd wallapop-scraper
+    git clone [https://github.com/your-username/wallacar-scraper.git](https://github.com/your-username/wallacar-scraper.git)
+    cd wallacar-scraper
     ```
 
-2.  **Crear un entorno virtual** (recomendado):
+2. **Create a virtual environment** (recommended):
     ```bash
-    python -m venv venv
-    source venv/bin/activate  # En Linux/Mac
-    venv\Scripts\activate     # En Windows
+    python -m venv .venv
+    source .venv/bin/activate  # On Linux/Mac
+    .venv\Scripts\activate     # On Windows
     ```
 
-3.  **Instalar dependencias**:
+3. **Install dependencies**:
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Configuración**:
-    Copia el archivo de ejemplo y configura tus variables:
+4. **Environment Variables**:
+    Copy the provided example file and set up your private keys:
     ```bash
     cp .env.example .env
     ```
-    Edita `.env` con tu Token de Bot de Telegram y tu Chat ID.
+    Edit `.env` to input your custom Telegram Bot Token and Chat ID.
 
-## ⚙️ Uso
+## ⚙️ Usage
 
-Para iniciar el bot:
+To launch the automation engine, run:
 
 ```bash
 python main.py
-```
-
-Sigue las instrucciones en pantalla para añadir nuevas búsquedas o cargar las existentes.
-
-## 🐳 Docker (Opcional)
-
-Puedes ejecutar el bot en un contenedor aislado:
-
-```bash
-docker build -t wallapop-bot .
-docker run -d --env-file .env -v $(pwd)/searches.json:/app/searches.json -v $(pwd)/rastreador_coches.db:/app/rastreador_coches.db wallapop-bot
-```
-
-## 🛠️ Estructura del Proyecto
-
--   `main.py`: Punto de entrada y orquestador del ciclo de vida.
--   `scraper.py`: Lógica de navegación y extracción con Selenium.
--   `database.py`: Gestión de SQLite (precios, historial, estadísticas).
--   `notifier.py`: Integración con la API de Telegram.
--   `logger.py`: Configuración centralizada de logs.
--   `config.py`: Gestión de variables de entorno y configuración.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cambios importantes.
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
