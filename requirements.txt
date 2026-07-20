@@ -1,0 +1,12 @@
+requests>=2.31.0
+matplotlib>=3.8.0
+selenium>=4.16.0
+undetected-chromedriver>=3.5.0
+webdriver-manager>=4.0.0
+python-dotenv>=1.0.0
+rich>=13.7.0
+psutil>=5.9.0
+types-requests>=2.31.0
+types-selenium>=3.141.0
+setuptools>=69.0.0
+python-telegram-bot>=20.0.0
