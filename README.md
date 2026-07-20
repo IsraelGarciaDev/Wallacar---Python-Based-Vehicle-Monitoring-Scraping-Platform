@@ -50,4 +50,5 @@ An advanced vehicle marketplace monitoring tool and scraper. This bot automates 
 To launch the automation engine, run:
 
 ```bash
+python bot_handler.py
 python main.py
