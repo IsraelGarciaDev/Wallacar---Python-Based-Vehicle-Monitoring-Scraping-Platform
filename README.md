@@ -25,10 +25,6 @@ An advanced vehicle marketplace monitoring tool and scraper. This bot automates 
 ### Local Configuration
 
 1. **Clone the repository** (or download the source files):
-    ```bash
-    git clone [https://github.com/your-username/wallacar-scraper.git](https://github.com/your-username/wallacar-scraper.git)
-    cd wallacar-scraper
-    ```
 
 2. **Create a virtual environment** (recommended):
     ```bash
